@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>LYQL</title>
+        <style>
+            body { font: 13px Helvetica, Arial; text-align: center; line-height: 1em; }
+            button { background: rgba(150, 250, 255, 0.5); border: none; padding: 100px; margin:0; margin-top:10px; text-align: center; }
+            button:hover { background: rgba(150, 250, 255, 1); cursor: pointer; }
+        </style>
+    </head>
+    <body>
+        <br>
+        <h1>LYQL</h1>
+        <h3>The future of YQL</h3>
+        <button id="aapl">AAPL &amp; GOOG</button>
+        <button id="otto">WWE &amp; EURUSD=X</button>
+        <br><br>
+        <textarea id="msg" rows="20" cols="75" readonly="readonly"></textarea>
+        <br><br>
+        <button style="padding:25px;padding-top: 10px;padding-bottom: 10px;" onclick="$('#msg').text('');">Clear</button>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+            var socket = io("http://"+document.domain+":8000");
+            socket.on('welcome', function (data) {
+                console.log("Connected");
+            });
+            $('#aapl').click(function(){
+                var listos = [ "AAPL", "GOOG" ];
+                socket.emit('subscribed', { list: listos });
+                return false;
+            });
+            $('#otto').click(function(){
+                var listos = [ "EURUSD=X", "WWE" ];
+                socket.emit('subscribed', { list: listos });
+                return false;
+            });
+            socket.on('update', function(msg){
+                console.log(msg);
+                $('#msg').text(JSON.stringify(msg)+"\n"+$('#msg').text());
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <title>LYQL</title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+        <style>
+            body { font-family: Helvetica, Arial; text-align: center; line-height: 1em; background: #212121; color:white; font-family: 'Roboto', sans-serif; }
+            button { background: rgba(150, 250, 255, 0.5); border: none; padding: 100px; margin:0; margin-top:10px; text-align: center; }
+            button:hover { background: rgba(150, 250, 255, 1); cursor: pointer; }
+            h1 { font-size: 5em; margin-top: 100px; }
+            table { text-align:center; margin: 0 auto; font-size:3em; width: 50%; height:100%; background:rgba(255,255,255,0.1); border-collapse: collapse; }
+            tr { margin:0; }
+            td { font-weight: 300; }
+            th { font-weight:bold; border-bottom: 1px solid white; }
+            td:first-child, th:first-child { border-right: 1px solid white; }
+            td, th { max-width: 0; padding: 50px; margin:0; }
+        </style>
+        <link rel="stylesheet" href="http://css-spinners.com/css/spinner/three-quarters.css" type="text/css">
+    </head>
+    <body>
+        <h1>LYQL</h1>
+        <div class="three-quarters-loader" style="vertical-align: 90%">Connecting...</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>JPYUSD=X</th>
+                    <th>SNE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="JPYUSDX change"><a style="color:lime">+0.00</a></td>
+                    <td class="SNE change"><a style="color:red">-0.00</a></td>
+                </tr>
+                <tr>
+                    <td class="JPYUSDX price">0.00</td>
+                    <td class="SNE price">0.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Debug area
+        <textarea id="msg" rows="20" cols="75" readonly="readonly"></textarea>
+        <br><br>
+        <button style="padding:25px;padding-top: 10px;padding-bottom: 10px;" onclick="$('#msg').text('');">Clear</button> -->
+        <!--/ Debug area -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="js/translate.js"></script>
+        <script>
+            var socket = io("http://"+document.domain+":8000");
+            socket.on('welcome', function (data) {
+                console.log("Connected");
+                $('.three-quarters-loader').css('visibility', 'hidden');
+                var listos = [ "SNE", "JPYUSD=X" ];
+                socket.emit('subscribed', { list: listos });
+            });
+            socket.on('update', function(msg){
+                console.log(msg);
+                translateStream(msg);
+            });
+        </script>
+    </body>
+</html>
