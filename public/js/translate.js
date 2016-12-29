@@ -37,5 +37,5 @@ var translateStream = function(ping) {
                 alert(ping + " is not defined.");
                 break;
         }
-    };
-}
+    }
+};

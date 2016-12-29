@@ -64,7 +64,7 @@ io.sockets.on('connection', function (socket) {
         console.log("Subscriptions:", subscriptions);
         addUser(subscriptions, socket.id);
 
-        if(curr != null){
+        if(curr !== null){
             console.log(curr);
             curr.abort();
         }
@@ -76,7 +76,7 @@ io.sockets.on('connection', function (socket) {
         console.log("User disconnected");
         removeUser(subscriptions, socket.id);
 
-        if(curr != null){
+        if(curr !== null){
             curr.abort();
         }
 
@@ -111,11 +111,11 @@ var start_request = function () {
     });
 
 //  Tis nobler to get everything
-    var url = "https://streamerapi.finance.yahoo.com/streamer/1.0?s=" + querystring + "&k=" + params.join(",") + "&r=0&callback=parent.yfs_u1f&mktmcb=parent.yfs_mktmcb&gencallback=parent.yfs_gencb&region=US&lang=en-US&localize=0&mu=1&ts=1427741124050&dp=1"
+    var url = "https://streamerapi.finance.yahoo.com/streamer/1.0?s=" + querystring + "&k=" + params.join(",") + "&r=0&callback=parent.yfs_u1f&mktmcb=parent.yfs_mktmcb&gencallback=parent.yfs_gencb&region=US&lang=en-US&localize=0&mu=1&ts=1427741124050&dp=1";
     curr = request(url);
     curr.on('error', function handleError(err) { /* ... */ });
     curr.pipe(tr);
-}
+};
 
 var node_dist = function (arr) {
     var keys = Object.keys(arr);
@@ -127,7 +127,7 @@ var node_dist = function (arr) {
         }
     }
     // console.log(Object.keys(arr));
-}
+};
 
 var data_mining = function (data) {
     data = data.slice(19);
@@ -139,7 +139,7 @@ var data_mining = function (data) {
     }
     data = data.slice(0, data.length-13);
     return data;
-}
+};
 
 var addUser = function (channels, id) {
     for(var i=0;i<channels.length;i++) {
@@ -153,7 +153,7 @@ var addUser = function (channels, id) {
 
     }
     console.log(subscribers);
-}
+};
 
 var removeUser = function (subscriptions, id) {
     for(var i=0;i<subscriptions.length;i++) {
@@ -161,8 +161,8 @@ var removeUser = function (subscriptions, id) {
         if (index > -1) {
             subscribers[subscriptions[i]].splice(index, 1);
         }
-        if(subscribers[subscriptions[i]].length == 0) {
+        if(subscribers[subscriptions[i]].length === 0) {
             subscribers.splice(subscriptions[i], 1);
         }
     }
-}
+};
