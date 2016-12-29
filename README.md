@@ -17,4 +17,4 @@ Just run `index.js`. It will create a local server that handles fetching & distr
 - [ ] Write documentation and code comments.
 - [ ] Modularize so that it can be used within other use cases.
 - [ ] Add Browser support, these processes can be distributed amongst web clients.
-- [ ] (Disputed) Write SQL-style language which can communicate with the LYQL API.
+- [ ] \(Disputed\) Write SQL-style language which can communicate with the LYQL API.
