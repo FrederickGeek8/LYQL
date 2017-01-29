@@ -11,6 +11,11 @@
   "scripts": {
     "test": "node test.js"
   },
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/FrederickGeek8/LYQL"
+  },
   "keywords": [
     "lyql",
     "yahoo",
