@@ -5,9 +5,6 @@
 */
 var trumpet = require('trumpet');
 var request = require('request');
-var events = require('events');
-var _ = require('underscore');
-var eventEmitter = new events.EventEmitter();
 var blacklist = ["unixtime", "m_open_close"];
 
 function LYQL(options, callback) {
