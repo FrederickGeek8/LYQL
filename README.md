@@ -28,7 +28,7 @@ test.start();
 * **b60:** Bid Size
 * **c10:** Change
 * **c63:** Change Realtime
-* **c64:** *Undocumented*
+* **c64:** *Disputed* Change Realtime After Hours
 * **c85:** Change Realtime After Hours
 * **c86:** Percent Change Realtime After Hours
 * **g53:** Day Low
@@ -39,9 +39,9 @@ test.start();
 * **l86:** Price Realtime After Hours
 * **p20:** Percent Change
 * **p43:** Percent Change Realtime
-* **p44:** *Undocumented*
-* **t53:** *Undocumented* suspected timestamp
-* **t54:** *Undocumented*
+* **p44:** Percent Change Realtime After Hours
+* **t53:** *Disputed* Timestamp for Commodities
+* **t54:** *Disputed* Timestamp for Stocks
 * **v53:** Volume
 
 ## Installation

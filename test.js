@@ -1,8 +1,8 @@
 var LYQL = require('./main.js');
 
 var options = {
-  "Stocks": ["GOOG", "AAPL", "JPYUSD=X"],
-  "Parameters": ["p44", "c64", "t54"]
+  "Stocks": ["GOOG", "AAPL", "JPYUSD=X", "GC=F"],
+  "Parameters": ["t53", "t54"]
 };
 
 var test = new LYQL(options, function(data){
