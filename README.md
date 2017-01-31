@@ -2,7 +2,7 @@
 **Disclaimer: I am in no way affiliated with Yahoo. This tool likely violates Yahoo Terms and Conditions by using non-public API's. Use *only* for personal use. I am not liable for misuse of this program or any effects it may have.**
 
 ## Super simple to use
-LYQL is a tool for achieving truly real-time, free stock prices direct from Yahoo. LYQL is designed to be a simple, intuitive library solution that can be used both in the browser and on a server.
+LYQL is a tool for achieving truly realtime, free stock prices direct from Yahoo. LYQL is designed to be a simple, intuitive library solution that can be used both in the browser and on a server.
 ```javascript
 var LYQL = require('LYQL');
 
@@ -82,5 +82,6 @@ LYQL.removeParameter(parameter);
 
 ## TODO
 - [ ] Write documentation / code comments.
+- [ ] Add simple mode
 - [x] Modularize so that it can be used within other use cases.
 - [x] Add Browser support (Browserify)
