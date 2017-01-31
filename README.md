@@ -1,20 +1,87 @@
 # LYQL
-**Disclaimer: I am in no way affiliated with Yahoo. This tool likely violates Yahoo Terms and Conditions. Use *only* for personal use. I am not liable for misuse of this program or any effects it may have.**
+**Disclaimer: I am in no way affiliated with Yahoo. This tool likely violates Yahoo Terms and Conditions by using non-public API's. Use *only* for personal use. I am not liable for misuse of this program or any effects it may have.**
 
-LYQL is a tool for achieving real-time, free stock prices. By modifying this code, you should be able to scrape any type of data. Currently, this is achieved by the Server application keeping track of requested ticker symbols and users connected over Socket.io. Users are added to channels determined by their requested ticker symbols.
+## Super simple to use
+LYQL is a tool for achieving truly realtime, free stock prices direct from Yahoo. LYQL is designed to be a simple, intuitive library solution that can be used both in the browser and on a server.
+```javascript
+var LYQL = require('LYQL');
 
-## Notes
-- `page1.html` is a basic console
-- `page2.html` is an stylish example application using LYQL
+var options = {
+  "Stocks": ["GOOG", "AAPL", "JPYUSD=X"],
+  // Price, Change, and Volume
+  "Parameters": ["l84", "p43", "v53"]
+};
+
+var test = new LYQL(options, function(data){
+  console.log(data);
+});
+
+test.start();
+```
+
+
+## Request Parameters
+* **a00:** Ask
+* **a50:** Ask Size
+* **b00:** Bid
+* **b60:** Bid Size
+* **c10:** Change
+* **c63:** Change Realtime
+* **c64:** *Disputed* Change Realtime After Hours
+* **c85:** Change Realtime After Hours
+* **c86:** Percent Change Realtime After Hours
+* **g53:** Day Low
+* **h53:** Day High
+* **j10:** Market Cap
+* **l10:** Price
+* **l84:** Price Realtime
+* **l86:** Price Realtime After Hours
+* **p20:** Percent Change
+* **p43:** Percent Change Realtime
+* **p44:** Percent Change Realtime After Hours
+* **t53:** *Disputed* Timestamp for Commodities
+* **t54:** *Disputed* Timestamp for Stocks
+* **v53:** Volume
 
 ## Installation
-In a similar manner
+`npm install LYQL`
 
-## Usage
-Just run `index.js`. It will create a local server that handles fetching & distributing stock data, as well as HTTP.
+## Commands
+```javascript
+new LYQL(options, function(data) {
+  // ...
+});
+```
+Creates an instance of LYQL that calls a given function whenever new data has been streamed from Yahoo.
+
+`options` should be an object in the format
+```javascript
+var options = {
+  "Stocks": ["GOOG", "AAPL", "JPYUSD=X"],
+  // Price, Change, and Volume
+  "Parameters": ["l84", "p43", "v53"]
+};
+```
+In order to start, stop, and restart LYQL instances, one of the following commands can be executed on an LYQL instance.
+```javascript
+LYQL.start();
+LYQL.stop();
+LYQL.restart();
+```
+In order to add or remove a stock from a LYQL instance, one of the following commands can be executed.
+```javascript
+LYQL.addStock(ticker);
+LYQL.removeStock(ticker);
+```
+In order to add or remove a request parameter from a LYQL instance, one of the following can be run.
+```javascript
+LYQL.addParameter(parameter);
+LYQL.removeParameter(parameter);
+```
+
 
 ## TODO
-- [ ] Write documentation and code comments.
-- [ ] Modularize so that it can be used within other use cases.
-- [ ] Add Browser support, these processes can be distributed amongst web clients.
-- [ ] \(Disputed\) Write SQL-style language which can communicate with the LYQL API.
+- [ ] Write documentation / code comments.
+- [ ] Add simple mode
+- [x] Modularize so that it can be used within other use cases.
+- [x] Add Browser support (Browserify)
