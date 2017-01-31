@@ -1,9 +1,8 @@
 # LYQL
 **Disclaimer: I am in no way affiliated with Yahoo. This tool likely violates Yahoo Terms and Conditions by using non-public API's. Use *only* for personal use. I am not liable for misuse of this program or any effects it may have.**
 
-LYQL is a tool for achieving truly real-time, free stock prices direct from Yahoo.
-
-## Basic Usage
+## Super simple to use
+LYQL is a tool for achieving truly real-time, free stock prices direct from Yahoo. LYQL is designed to be a simple, intuitive library solution that can be used both in the browser and on a server.
 ```javascript
 var LYQL = require('LYQL');
 
@@ -46,6 +45,40 @@ test.start();
 
 ## Installation
 `npm install LYQL`
+
+## Commands
+```javascript
+new LYQL(options, function(data) {
+  // ...
+});
+```
+Creates an instance of LYQL that calls a given function whenever new data has been streamed from Yahoo.
+
+`options` should be an object in the format
+```javascript
+var options = {
+  "Stocks": ["GOOG", "AAPL", "JPYUSD=X"],
+  // Price, Change, and Volume
+  "Parameters": ["l84", "p43", "v53"]
+};
+```
+In order to start, stop, and restart LYQL instances, one of the following commands can be executed on an LYQL instance.
+```javascript
+LYQL.start();
+LYQL.stop();
+LYQL.restart();
+```
+In order to add or remove a stock from a LYQL instance, one of the following commands can be executed.
+```javascript
+LYQL.addStock(ticker);
+LYQL.removeStock(ticker);
+```
+In order to add or remove a request parameter from a LYQL instance, one of the following can be run.
+```javascript
+LYQL.addParameter(parameter);
+LYQL.removeParameter(parameter);
+```
+
 
 ## TODO
 - [ ] Write documentation / code comments.
