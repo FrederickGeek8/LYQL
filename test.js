@@ -1,8 +1,8 @@
 var LYQL = require('./main.js');
 
 var options = {
-  "Stocks": ["GOOG", "AAPL", "JPYUSD=X", "GC=F"],
-  "Parameters": ["t53", "t54"]
+  "Stocks": ["AAPL", "JPYUSD=X"],
+  "Parameters": ["h53", "g53"]
 };
 
 var test = new LYQL(options, function(data){
@@ -12,9 +12,21 @@ var test = new LYQL(options, function(data){
 test.start();
 
 setTimeout(function () {
-  test.stop();
+  test.addStock("GOOG");
+  console.log("Added");
 }, 5000);
 
 setTimeout(function () {
-  test.start();
+  test.removeStock("AAPL");
+  console.log("Removed");
 }, 10000);
+
+setTimeout(function() {
+  test.addParameter("l10");
+  console.log("Added l10");
+}, 15000);
+
+setTimeout(function() {
+  test.removeParameter("h53");
+  console.log("Removed h53");
+}, 20000);

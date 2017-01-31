@@ -1,7 +1,7 @@
 {
   "name": "LYQL",
   "version": "0.1.0",
-  "description": "LYQL is a tool for achieving real-time, free stock prices.",
+  "description": "Truly realtime stock data. Streamed straight from Yahoo.",
   "main": "main.js",
   "dependencies": {
     "request": "^2.54.0",
@@ -24,7 +24,11 @@
     "quotes",
     "data",
     "stock",
-    "stocks"
+    "stocks",
+    "commodities",
+    "live",
+    "stream",
+    "streaming"
   ],
   "author": "Frederick Morlock",
   "license": "CC-BY-NC-SA-4.0"

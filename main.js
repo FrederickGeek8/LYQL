@@ -81,4 +81,43 @@ LYQL.prototype.stop = function() {
   this.curr.abort();
 };
 
+LYQL.prototype.restart = function() {
+  if (this.curr !== null) {
+    this.stop();
+    this.start();
+  }
+};
+
+LYQL.prototype.addStock = function(ticker) {
+  if(this.stocks.indexOf(ticker) == -1) {
+    this.stocks.push(ticker);
+    this.restart();
+  }
+};
+
+LYQL.prototype.removeStock = function(ticker) {
+  var index = this.stocks.indexOf(ticker);
+
+  if (index > -1) {
+    this.stocks.splice(index, 1);
+    this.restart();
+  }
+};
+
+LYQL.prototype.addParameter = function(parameter) {
+  if(this.parameters.indexOf(parameter) == -1) {
+    this.parameters.push(parameter);
+    this.restart();
+  }
+};
+
+LYQL.prototype.removeParameter = function(parameter) {
+  var index = this.parameters.indexOf(parameter);
+
+  if (index > -1) {
+    this.parameters.splice(index, 1);
+    this.restart();
+  }
+};
+
 module.exports = LYQL;

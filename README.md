@@ -1,5 +1,5 @@
 # LYQL
-**Disclaimer: I am in no way affiliated with Yahoo. This tool likely violates Yahoo Terms and Conditions. Use *only* for personal use. I am not liable for misuse of this program or any effects it may have.**
+**Disclaimer: I am in no way affiliated with Yahoo. This tool likely violates Yahoo Terms and Conditions by using non-public API's. Use *only* for personal use. I am not liable for misuse of this program or any effects it may have.**
 
 LYQL is a tool for achieving truly real-time, free stock prices direct from Yahoo.
 
