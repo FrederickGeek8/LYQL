@@ -4,7 +4,7 @@
 ## Super simple to use
 LYQL is a tool for achieving truly realtime, free stock prices direct from Yahoo. LYQL is designed to be a simple, intuitive library solution that can be used both in the browser and on a server.
 ```javascript
-var LYQL = require('LYQL');
+var LYQL = require('lyql');
 
 var options = {
   "Stocks": ["GOOG", "AAPL", "JPYUSD=X"],

@@ -1,6 +1,6 @@
 {
   "name": "lyql",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Truly realtime stock data. Streamed straight from Yahoo.",
   "main": "main.js",
   "dependencies": {
