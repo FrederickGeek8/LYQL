@@ -1,5 +1,5 @@
 {
-  "name": "LYQL",
+  "name": "lyql",
   "version": "0.1.0",
   "description": "Truly realtime stock data. Streamed straight from Yahoo.",
   "main": "main.js",
