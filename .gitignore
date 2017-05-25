@@ -5,6 +5,8 @@ status
 .AppleDouble
 .LSOverride
 
+npm-debug.log
+
 node_modules
 
 # Icon must end with two \r

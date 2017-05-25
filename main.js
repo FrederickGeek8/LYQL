@@ -59,7 +59,7 @@ LYQL.prototype.start = function() {
   });
 
   //  Tis nobler to get everything
-  var url = "https://streamerapi.finance.yahoo.com/streamer/1.0?s=" + querystring + "&k=" + this.parameters.join(",") + "&r=0&callback=parent.yfs_u1f&mktmcb=parent.yfs_mktmcb&gencallback=parent.yfs_gencb&region=US&lang=en-US&localize=0&mu=1&ts=1427741124050&dp=1";
+  var url = "https://streamerapi.finance.yahoo.com/streamer/1.0?s=" + querystring + "&k=" + this.parameters.join(",") + "&callback=parent.yfs_u1f&mktmcb=parent.yfs_mktmcb&gencallback=parent.yfs_gencb";
   this.curr = request(url);
   this.curr.on('error', function handleError(err) { /* ... */ });
   this.curr.pipe(tr);
